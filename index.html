@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>mathEscape: Misi Rahasia Matematika Kelas X - SMAN 14 Pangkep</title>
+  <title>mathEscape v2.0: Misi Rahasia Matematika Kelas X - SMAN 14 Pangkep</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
 
@@ -15,7 +15,7 @@
       --accent-blue: #3b82f6;
       --accent-teal: #14b8a6;
       --accent-amber: #f59e0b;
-      --card-bg: rgba(255, 255, 255, 0.94);
+      --card-bg: rgba(255, 255, 255, 0.95);
       --text-main: #1e293b;
       --text-muted: #64748b;
       --border: #e2e8f0;
@@ -26,7 +26,7 @@
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     }
 
     body {
@@ -50,14 +50,14 @@
     .deco-3 { width: 240px; height: 240px; background: #bae6fd; top: 45%; left: 60%; }
 
     h1, h2, h3, .font-display {
-      font-family: 'Fredoka', sans-serif;
+      font-family: 'Fredoka', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
     }
 
     header {
-      background: rgba(255, 255, 255, 0.88);
+      background: rgba(255, 255, 255, 0.92);
       backdrop-filter: blur(12px);
       border-bottom: 2px solid #fce7f3;
-      padding: 14px 24px;
+      padding: 12px 20px;
       position: sticky;
       top: 0;
       z-index: 50;
@@ -70,38 +70,52 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      flex-wrap: wrap;
       gap: 12px;
     }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
+      flex-shrink: 0;
     }
 
     .brand-icon {
-      width: 44px;
-      height: 44px;
-      border-radius: 14px;
+      width: 42px;
+      height: 42px;
+      border-radius: 13px;
       background: linear-gradient(135deg, var(--primary), var(--secondary));
       color: white;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.4rem;
+      font-size: 1.35rem;
       box-shadow: 0 6px 15px rgba(236, 72, 153, 0.3);
     }
 
     .brand-text h1 {
-      font-size: 1.35rem;
+      font-size: 1.25rem;
       background: linear-gradient(90deg, var(--primary-dark), var(--secondary));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .ver-pill {
+      font-size: 0.68rem;
+      background: #fdf2f8;
+      border: 1px solid #f9a8d4;
+      color: #be185d;
+      -webkit-text-fill-color: #be185d;
+      padding: 2px 7px;
+      border-radius: 999px;
+      font-weight: 700;
     }
 
     .brand-text p {
-      font-size: 0.78rem;
+      font-size: 0.76rem;
       color: var(--text-muted);
       font-weight: 600;
     }
@@ -110,6 +124,29 @@
       display: flex;
       gap: 8px;
       flex-wrap: wrap;
+    }
+
+    @media (max-width: 820px) {
+      .nav-container {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+      }
+      .nav-tabs {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        padding-bottom: 2px;
+      }
+      .nav-tabs::-webkit-scrollbar {
+        display: none;
+      }
+      .tab-btn {
+        flex-shrink: 0;
+        padding: 8px 13px;
+        font-size: 0.8rem;
+      }
     }
 
     .tab-btn {
@@ -158,6 +195,18 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
+    @keyframes shakeBox {
+      0%, 100% { transform: translateX(0); }
+      20%, 60% { transform: translateX(-6px); }
+      40%, 80% { transform: translateX(6px); }
+    }
+
+    .shake-error {
+      animation: shakeBox 0.38s ease;
+      border-color: #ef4444 !important;
+      background-color: #fef2f2 !important;
+    }
+
     .hero-card {
       background: var(--card-bg);
       border-radius: 26px;
@@ -177,6 +226,7 @@
       .hero-card {
         grid-template-columns: 1fr;
         text-align: center;
+        padding: 20px;
       }
     }
 
@@ -274,6 +324,21 @@
       border-color: var(--secondary);
     }
 
+    .btn-danger-soft {
+      background: #fff1f2;
+      color: #be123c;
+      border: 1.5px solid #fecdd3;
+      padding: 6px 12px;
+      border-radius: 10px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-danger-soft:hover {
+      background: #ffe4e6;
+    }
+
     .grid-4 {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -307,7 +372,7 @@
 
     .topic-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
       gap: 20px;
     }
 
@@ -341,8 +406,8 @@
       border-radius: 12px;
       padding: 12px;
       margin: 10px 0;
-      font-size: 0.88rem;
-      line-height: 1.6;
+      font-size: 0.9rem;
+      line-height: 1.75;
       color: #334155;
     }
     .deep-note {
@@ -353,6 +418,7 @@
       font-size: 0.84rem;
       color: #854d0e;
       margin-top: 10px;
+      line-height: 1.5;
     }
 
     .filter-bar {
@@ -393,7 +459,7 @@
       border-radius: 14px;
       padding: 14px;
       font-size: 0.9rem;
-      line-height: 1.6;
+      line-height: 1.65;
       color: #14532d;
     }
     .solution-box.open { display: block; }
@@ -420,18 +486,18 @@
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-      gap: 10px;
+      gap: 8px;
       background: #fdf2f8;
-      padding: 12px 16px;
+      padding: 12px 14px;
       border-radius: 16px;
       margin-bottom: 16px;
     }
 
     .hud-pill {
       background: white;
-      padding: 6px 12px;
+      padding: 6px 11px;
       border-radius: 10px;
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       font-weight: 700;
       color: #831843;
       border: 1px solid #f9a8d4;
@@ -500,6 +566,7 @@
       text-align: center;
       letter-spacing: 2px;
       outline: none;
+      transition: all 0.2s;
     }
     .code-input:focus { border-color: var(--primary); }
 
@@ -604,17 +671,61 @@
       margin-top: 16px;
     }
 
+    .btn-print-cert {
+      background: linear-gradient(135deg, #0ea5e9, #6366f1);
+      color: white;
+      border: none;
+      padding: 11px 20px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      margin-top: 14px;
+      box-shadow: 0 6px 16px rgba(14, 165, 233, 0.28);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-print-cert:hover {
+      opacity: 0.94;
+      transform: translateY(-1px);
+    }
+
     footer {
       text-align: center;
       padding: 24px 16px;
       margin-top: 32px;
       color: var(--text-muted);
-      font-size: 0.84rem;
+      font-size: 0.82rem;
+      line-height: 1.65;
       border-top: 1.5px solid #fce7f3;
-      background: rgba(255,255,255,0.7);
+      background: rgba(255,255,255,0.75);
     }
 
     .hidden { display: none !important; }
+
+    @media print {
+      body * {
+        visibility: hidden;
+      }
+      #cert-area, #cert-area * {
+        visibility: visible;
+      }
+      #cert-area {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        margin: 0;
+        padding: 36px;
+        box-shadow: none !important;
+        border: 5px double #db2777 !important;
+        background: #ffffff !important;
+      }
+      .no-print {
+        display: none !important;
+      }
+    }
   </style>
 </head>
 <body>
@@ -628,7 +739,7 @@
       <div class="brand">
         <div class="brand-icon">🔐</div>
         <div class="brand-text">
-          <h1>mathEscape Kelas X</h1>
+          <h1>mathEscape Kelas X <span class="ver-pill">v2.0 Final</span></h1>
           <p>SMAN 14 PANGKEP • Pulau Pamantauang</p>
         </div>
       </div>
@@ -638,7 +749,7 @@
         <button class="tab-btn" onclick="switchTab('materi', this)">📚 Materi Kelas X</button>
         <button class="tab-btn" onclick="switchTab('contoh', this)">✍️ Contoh Soal</button>
         <button class="tab-btn" onclick="switchTab('escape', this)">🚀 Misi Escape Room</button>
-        <button class="tab-btn" onclick="switchTab('profil', this)">👩‍🏫 Profil Guru</button>
+        <button class="tab-btn" onclick="switchTab('profil', this)">👩‍🏫 Profil &amp; Lisensi</button>
       </nav>
     </div>
   </header>
@@ -648,7 +759,7 @@
     <section id="view-home" class="section-view active">
       <div class="hero-card">
         <div class="avatar-frame">
-          <svg width="190" height="205" viewBox="0 0 220 240" xmlns="http://www.w3.org/2000/svg">
+          <svg width="190" height="205" viewBox="0 0 220 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ilustrasi Vektor Guru Matematika Berhijab">
             <defs>
               <linearGradient id="hijabGrad" x1="0%" y1="0%" x2="100%" y2="100%">
                 <stop offset="0%" stop-color="#f472b6"/>
@@ -711,7 +822,7 @@
             </g>
 
             <rect x="66" y="182" width="88" height="44" rx="10" fill="#1e1b4b" stroke="#f472b6" stroke-width="2.5"/>
-            <text x="110" y="202" font-family="Fredoka, sans-serif" font-size="11" fill="#38bdf8" text-anchor="middle" font-weight="bold">Un = a+(n-1)b</text>
+            <text x="110" y="202" font-family="Fredoka, sans-serif" font-size="11" fill="#38bdf8" text-anchor="middle" font-weight="bold">U&#8345; = a+(n-1)b</text>
             <text x="110" y="217" font-family="Fredoka, sans-serif" font-size="10" fill="#f9a8d4" text-anchor="middle">Math is Fun! ✨</text>
             <circle cx="67" cy="204" r="7.5" fill="#ffe4d6"/>
             <circle cx="153" cy="204" r="7.5" fill="#ffe4d6"/>
@@ -721,7 +832,7 @@
 
         <div class="hero-content">
           <div class="school-pill">
-            <span>👩‍🏫 Rahmatul Ula, S.MAT</span>
+            <span>👩‍🏫 Rahmatul Ula, S.Mat.</span>
             <span>•</span>
             <span>🏫 SMAN 14 PANGKEP</span>
             <span>•</span>
@@ -729,7 +840,7 @@
           </div>
           <h2>Selamat Datang di Petualangan <span style="color:var(--primary);">mathEscape!</span></h2>
           <p class="hero-desc">
-            Belajar Matematika Kelas X (Fase E) kini jauh lebih seru! Pahami konsep secara mendalam bukan sekadar menghafal rumus, pelajari ringkasan materi, latih kemampuanmu lewat bank soal interaktif, lalu pecahkan <strong>6 Ruangan Misi Rahasia Laboratorium</strong> bersama Asisten Tutor AI!
+            Belajar Matematika Kelas X (Fase E) kini jauh lebih bermakna! Pahami konsep secara mendalam bukan sekadar menghafal rumus, pelajari ringkasan materi, latih kemampuanmu lewat bank soal interaktif, lalu pecahkan <strong>6 Ruangan Misi Rahasia Laboratorium</strong> bersama Asisten Tutor AI!
           </p>
           <div class="cta-group">
             <button class="btn-primary" onclick="switchTab('escape', document.querySelectorAll('.tab-btn')[3])">🚀 Mulai Misi Rahasia (6 Level)</button>
@@ -752,12 +863,12 @@
         <div class="feature-card">
           <div class="f-icon" style="background:#e0f2fe; color:#0284c7;">🔐</div>
           <h3>6 Ruangan Laboratorium</h3>
-          <p>Uji ketajaman logika melalui 6 tantangan escape room interaktif lengkap dengan simulator eksplorasi pola.</p>
+          <p>Uji ketajaman logika melalui 6 tantangan escape room interaktif lengkap dengan simulator eksplorasi pola &amp; simpan progres otomatis.</p>
         </div>
         <div class="feature-card">
           <div class="f-icon" style="background:#dcfce7; color:#15803d;">🤖</div>
           <h3>Asisten Tutor AI</h3>
-          <p>Pendamping belajar pintar yang memandu dengan pertanyaan pemantik (scaffolding) tanpa langsung membocorkan jawaban.</p>
+          <p>Pendamping belajar pintar yang memandu dengan pertanyaan pemantik (<em>scaffolding</em>) tanpa langsung membocorkan jawaban.</p>
         </div>
       </div>
     </section>
@@ -766,7 +877,7 @@
     <section id="view-materi" class="section-view">
       <div style="margin-bottom:20px;">
         <h2 style="font-size:1.7rem; color:#1e1b4b;">📚 Modul Materi Matematika Kelas X (Fase E)</h2>
-        <p style="color:var(--text-muted); font-size:0.94rem;">Disusun oleh <strong>Rahmatul Ula, S.MAT</strong> untuk membangun pemahaman konsep yang kuat dan bermakna.</p>
+        <p style="color:var(--text-muted); font-size:0.94rem;">Disusun oleh <strong>Rahmatul Ula, S.Mat.</strong> untuk membangun pemahaman konsep yang kuat dan bermakna.</p>
       </div>
 
       <div class="topic-grid">
@@ -775,9 +886,9 @@
           <h3>1. Eksponen &amp; Logaritma</h3>
           <p style="font-size:0.88rem; color:#475569;">Memodelkan pertumbuhan dan peluruhan eksponensial (seperti pembelahan sel atau bunga majemuk).</p>
           <div class="formula-box">
-            • a^m · a^n = a^(m+n) &nbsp;|&nbsp; a^m / a^n = a^(m-n)<br>
-            • (a^m)^n = a^(m·n) &nbsp;|&nbsp; a^(-n) = 1 / a^n<br>
-            • Logaritma: ᵃlog b = c ⇔ a^c = b
+            • a<sup>m</sup> &middot; a<sup>n</sup> = a<sup>m+n</sup> &nbsp;|&nbsp; a<sup>m</sup> &divide; a<sup>n</sup> = a<sup>m&minus;n</sup><br>
+            • (a<sup>m</sup>)<sup>n</sup> = a<sup>m&middot;n</sup> &nbsp;|&nbsp; a<sup>&minus;n</sup> = 1 / a<sup>n</sup><br>
+            • Logaritma: <sup>a</sup>log b = c &hArr; a<sup>c</sup> = b
           </div>
           <div class="deep-note">
             <strong>Kunci Pemahaman:</strong> Logaritma adalah kebalikan eksponen—digunakan untuk mencari <em>berapa lama waktu/pangkat</em> yang dibutuhkan agar mencapai jumlah tertentu.
@@ -790,12 +901,12 @@
           <p style="font-size:0.88rem; color:#475569;">Membedakan pertumbuhan linear (selisih tetap) dan pertumbuhan eksponensial (rasio pengali tetap).</p>
           <div class="formula-box">
             <strong>Aritmetika (beda b):</strong><br>
-            • Un = a + (n - 1)b &nbsp;|&nbsp; Sn = (n/2)(2a + (n - 1)b)<br>
+            • U<sub>n</sub> = a + (n &minus; 1)b &nbsp;|&nbsp; S<sub>n</sub> = (n/2)(2a + (n &minus; 1)b)<br>
             <strong>Geometri (rasio r):</strong><br>
-            • Un = a · r^(n - 1) &nbsp;|&nbsp; S∞ = a / (1 - r) (untuk -1 &lt; r &lt; 1)
+            • U<sub>n</sub> = a &middot; r<sup>n&minus;1</sup> &nbsp;|&nbsp; S<sub>&infin;</sub> = a / (1 &minus; r) untuk &minus;1 &lt; r &lt; 1
           </div>
           <div class="deep-note">
-            <strong>Kunci Pemahaman:</strong> Un menanyakan nilai pada <em>satu posisi tertentu</em>, sedangkan Sn menanyakan <em>total akumulasi gabungan</em> dari suku pertama hingga ke-n.
+            <strong>Kunci Pemahaman:</strong> U<sub>n</sub> menanyakan nilai pada <em>satu posisi tertentu</em>, sedangkan S<sub>n</sub> menanyakan <em>total akumulasi gabungan</em> dari suku pertama hingga ke-n.
           </div>
         </div>
 
@@ -804,9 +915,9 @@
           <h3>3. Sistem Persamaan Linear Tiga Variabel (SPLTV)</h3>
           <p style="font-size:0.88rem; color:#475569;">Menyelesaikan masalah optimasi dan campuran tiga variabel (x, y, z) menggunakan eliminasi &amp; substitusi.</p>
           <div class="formula-box">
-            a₁x + b₁y + c₁z = d₁<br>
-            a₂x + b₂y + c₂z = d₂<br>
-            a₃x + b₃y + c₃z = d₃
+            a<sub>1</sub>x + b<sub>1</sub>y + c<sub>1</sub>z = d<sub>1</sub><br>
+            a<sub>2</sub>x + b<sub>2</sub>y + c<sub>2</sub>z = d<sub>2</sub><br>
+            a<sub>3</sub>x + b<sub>3</sub>y + c<sub>3</sub>z = d<sub>3</sub>
           </div>
           <div class="deep-note">
             <strong>Kunci Pemahaman:</strong> Eliminasi salah satu variabel yang sama dari dua pasang persamaan agar menyusut menjadi SPLDV (2 variabel).
@@ -818,9 +929,9 @@
           <h3>4. Perbandingan Trigonometri</h3>
           <p style="font-size:0.88rem; color:#475569;">Menghitung ketinggian benda atau jarak kapal di laut tanpa harus mengukurnya secara langsung.</p>
           <div class="formula-box">
-            • sin θ = Depan / Miring &nbsp;|&nbsp; cos θ = Samping / Miring<br>
-            • tan θ = Depan / Samping<br>
-            • Sudut Istimewa: 30°, 45°, 60°
+            • sin &theta; = Depan / Miring &nbsp;|&nbsp; cos &theta; = Samping / Miring<br>
+            • tan &theta; = Depan / Samping<br>
+            • Sudut Istimewa: 30&deg;, 45&deg;, 60&deg;
           </div>
           <div class="deep-note">
             <strong>Kunci Pemahaman:</strong> Perbandingan trigonometri hanya bergantung pada <em>besar sudut</em>, bukan pada seberapa besar ukuran segitiga siku-sikunya.
@@ -832,9 +943,9 @@
           <h3>5. Fungsi Kuadrat</h3>
           <p style="font-size:0.88rem; color:#475569;">Memodelkan lintasan gerak parabola (lemparan bola, lengkungan jembatan) dan titik maksimum/minimum.</p>
           <div class="formula-box">
-            • Bentuk Umum: f(x) = ax² + bx + c<br>
-            • Sumbu Simetri: xp = -b / (2a)<br>
-            • Diskriminan: D = b² - 4ac
+            • Bentuk Umum: f(x) = ax<sup>2</sup> + bx + c<br>
+            • Sumbu Simetri: x<sub>p</sub> = &minus;b / (2a)<br>
+            • Diskriminan: D = b<sup>2</sup> &minus; 4ac
           </div>
           <div class="deep-note">
             <strong>Kunci Pemahaman:</strong> Jika a &gt; 0 parabola terbuka ke atas (punya nilai minimum); jika a &lt; 0 terbuka ke bawah (punya nilai maksimum).
@@ -846,12 +957,12 @@
           <h3>6. Statistika &amp; Peluang</h3>
           <p style="font-size:0.88rem; color:#475569;">Membaca sebaran data (kuartil, jangkauan interkuartil) serta menghitung peluang kejadian majemuk.</p>
           <div class="formula-box">
-            • Mean x̄ = Σ(fi · xi) / Σfi &nbsp;|&nbsp; IQR = Q3 - Q1<br>
+            • Mean x&#772; = &Sigma;(f<sub>i</sub> &middot; x<sub>i</sub>) / &Sigma;f<sub>i</sub> &nbsp;|&nbsp; IQR = Q<sub>3</sub> &minus; Q<sub>1</sub><br>
             • Peluang: P(A) = n(A) / n(S)<br>
-            • Saling Lepas: P(A ∪ B) = P(A) + P(B)
+            • Saling Lepas: P(A &cup; B) = P(A) + P(B)
           </div>
           <div class="deep-note">
-            <strong>Kunci Pemahaman:</strong> Median dan IQR lebih tahan terhadap nilai pencilan (outlier) dibandingkan rata-rata (mean).
+            <strong>Kunci Pemahaman:</strong> Median dan IQR lebih tahan terhadap nilai pencilan (<em>outlier</em>) dibandingkan rata-rata (mean).
           </div>
         </div>
       </div>
@@ -882,9 +993,9 @@
           <div id="sol-1" class="solution-box">
             <strong>Langkah Analisis:</strong><br>
             1. Diketahui suku pertama a = 16, beda tetap b = 4, dan banyak baris n = 12.<br>
-            2. Karena ditanya <em>kapasitas total seluruh kursi</em>, kita gunakan rumus jumlah deret S₁₂:<br>
-            S₁₂ = (12 / 2) × (2(16) + (12 - 1) × 4)<br>
-            S₁₂ = 6 × (32 + 44) = 6 × 76 = <strong>456 kursi</strong>.
+            2. Karena ditanya <em>kapasitas total seluruh kursi</em>, kita gunakan rumus jumlah deret S<sub>12</sub>:<br>
+            S<sub>12</sub> = (12 / 2) &times; (2(16) + (12 &minus; 1) &times; 4)<br>
+            S<sub>12</sub> = 6 &times; (32 + 44) = 6 &times; 76 = <strong>456 kursi</strong>.
           </div>
         </div>
 
@@ -896,9 +1007,9 @@
           <button class="btn-outline" style="padding:8px 14px; font-size:0.84rem;" onclick="toggleSol('sol-2', this)">👁️ Lihat Pembahasan</button>
           <div id="sol-2" class="solution-box">
             <strong>Langkah Analisis:</strong><br>
-            1. Lintasan turun pertama kali: h₀ = 8 m (terjadi 1 kali).<br>
-            2. Pantulan pertama naik setinggi a = 8 × (1/2) = 4 m, lalu turun 4 m lagi. Gerakan naik-turun terjadi <strong>2 kali</strong>.<br>
-            3. Total Lintasan = 8 + 2 × (4 / (1 - 1/2)) = 8 + 2 × 8 = <strong>24 meter</strong>.
+            1. Lintasan turun pertama kali: h<sub>0</sub> = 8 m (terjadi 1 kali).<br>
+            2. Pantulan pertama naik setinggi a = 8 &times; (1/2) = 4 m, lalu turun 4 m lagi. Gerakan naik-turun terjadi <strong>2 kali</strong>.<br>
+            3. Total Lintasan = 8 + 2 &times; (4 / (1 &minus; 1/2)) = 8 + 2 &times; 8 = <strong>24 meter</strong>.
           </div>
         </div>
 
@@ -912,20 +1023,20 @@
             <strong>Langkah Analisis:</strong><br>
             1. Selang waktu dari pukul 08.00 ke 10.30 adalah 2,5 jam = 150 menit.<br>
             2. Banyak fase pembelahan: n = 150 / 30 = 5 kali pembelahan.<br>
-            3. Jumlah bakteri akhir = 50 × 2⁵ = 50 × 32 = <strong>1.600 bakteri</strong>.
+            3. Jumlah bakteri akhir = 50 &times; 2<sup>5</sup> = 50 &times; 32 = <strong>1.600 bakteri</strong>.
           </div>
         </div>
 
         <div class="example-item" data-cat="trigo">
           <span class="topic-tag" style="background:#ccfbf1; color:#0f766e;">Trigonometri • Tinggi Mercusuar</span>
           <p style="margin:8px 0 12px; line-height:1.6;">
-            <strong>Soal 4:</strong> Seorang pengamat di Pulau Pamantauang melihat puncak menara suar dengan sudut elevasi 45°. Jika jarak mendatar pengamat ke kaki menara adalah 30 meter dan tinggi mata pengamat 1,6 meter, berapakah tinggi menara suar tersebut?
+            <strong>Soal 4:</strong> Seorang pengamat di Pulau Pamantauang melihat puncak menara suar dengan sudut elevasi 45&deg;. Jika jarak mendatar pengamat ke kaki menara adalah 30 meter dan tinggi mata pengamat 1,6 meter, berapakah tinggi menara suar tersebut?
           </p>
           <button class="btn-outline" style="padding:8px 14px; font-size:0.84rem;" onclick="toggleSol('sol-4', this)">👁️ Lihat Pembahasan</button>
           <div id="sol-4" class="solution-box">
             <strong>Langkah Analisis:</strong><br>
-            1. Gunakan perbandingan tangen: tan 45° = tinggi menara di atas mata / jarak mendatar.<br>
-            2. 1 = y / 30 ⇒ y = 30 meter.<br>
+            1. Gunakan perbandingan tangen: tan 45&deg; = tinggi menara di atas mata / jarak mendatar.<br>
+            2. 1 = y / 30 &rArr; y = 30 meter.<br>
             3. Tinggi total menara = 30 + 1,6 = <strong>31,6 meter</strong>.
           </div>
         </div>
@@ -933,14 +1044,14 @@
         <div class="example-item" data-cat="kuadrat">
           <span class="topic-tag" style="background:#fef3c7; color:#b45309;">Fungsi Kuadrat • Tinggi Maksimum</span>
           <p style="margin:8px 0 12px; line-height:1.6;">
-            <strong>Soal 5:</strong> Tinggi sebuah roket air (dalam meter) setelah t detik diluncurkan dirumuskan oleh h(t) = -5t² + 30t + 2. Berapa ketinggian maksimum yang dicapai roket tersebut?
+            <strong>Soal 5:</strong> Tinggi sebuah roket air (dalam meter) setelah t detik diluncurkan dirumuskan oleh h(t) = &minus;5t<sup>2</sup> + 30t + 2. Berapa ketinggian maksimum yang dicapai roket tersebut?
           </p>
           <button class="btn-outline" style="padding:8px 14px; font-size:0.84rem;" onclick="toggleSol('sol-5', this)">👁️ Lihat Pembahasan</button>
           <div id="sol-5" class="solution-box">
             <strong>Langkah Analisis:</strong><br>
-            1. Waktu mencapai puncak: tp = -b / (2a) = -30 / (2(-5)) = 3 detik.<br>
+            1. Waktu mencapai puncak: t<sub>p</sub> = &minus;b / (2a) = &minus;30 / (2(&minus;5)) = 3 detik.<br>
             2. Substitusi t = 3 ke fungsi tinggi:<br>
-            h(3) = -5(3)² + 30(3) + 2 = -45 + 90 + 2 = <strong>47 meter</strong>.
+            h(3) = &minus;5(3)<sup>2</sup> + 30(3) + 2 = &minus;45 + 90 + 2 = <strong>47 meter</strong>.
           </div>
         </div>
       </div>
@@ -955,6 +1066,7 @@
             <div class="hud-pill">🚪 Ruang: <span id="hud-room">Intro</span></div>
             <div class="hud-pill">⏱️ Waktu: <span id="hud-time">00:00</span></div>
             <div class="hud-pill">⭐ Skor: <span id="hud-points">100</span></div>
+            <button class="btn-danger-soft" onclick="resetMission()" title="Ulangi misi dari awal">🔄 Reset Progres</button>
           </div>
 
           <div class="room-dots" id="room-dots">
@@ -970,7 +1082,7 @@
             <h3 style="font-size:1.35rem; color:#831843; margin-bottom:10px;">🚨 Misi Rahasia Laboratorium SMAN 14 Pangkep</h3>
             <div class="story-banner">
               Halo Agen! Sistem keamanan <strong>Laboratorium Matematika</strong> terkunci otomatis. Untuk membuka gerbang keluar, kamu harus memecahkan <strong>6 Ruangan Teka-Teki</strong> yang menguji pemahaman mendalammu tentang Matematika Kelas X.<br><br>
-              Jangan khawatir jika menemui kebuntuan—<strong>Asisten Tutor AI</strong> di samping kanan siap membimbing langkah berpikirmu!
+              Jangan khawatir jika menemui kebuntuan—<strong>Asisten Tutor AI</strong> di samping kanan siap membimbing langkah berpikirmu, dan progres misimu tersimpan otomatis!
             </div>
             <div style="margin-bottom:16px;">
               <label style="display:block; font-size:0.86rem; font-weight:700; margin-bottom:6px; color:#475569;">Masukkan Nama Siswa / Kelompok:</label>
@@ -1003,7 +1115,7 @@
           </div>
 
           <div id="room-2" class="hidden">
-            <h3 style="font-size:1.25rem; color:#831843; margin-bottom:10px;">☀️ Ruang 2: Kendali Panel Surya (Konsep Un vs Sn)</h3>
+            <h3 style="font-size:1.25rem; color:#831843; margin-bottom:10px;">☀️ Ruang 2: Kendali Panel Surya (Konsep U<sub>n</sub> vs S<sub>n</sub>)</h3>
             <div class="story-banner">Ruang generator membutuhkan total akumulasi energi surya selama 10 hari pertama untuk menyalakan lift laboratorium.</div>
             <div class="quest-box">
               Produksi listrik harian panel surya membentuk barisan aritmetika:<br>
@@ -1023,7 +1135,7 @@
             <div class="story-banner">Perbaiki kesalahan perhitungan peneliti sebelumnya agar gerbang laser nonaktif!</div>
             <div class="quest-box">
               Sebuah bola dijatuhkan dari ketinggian <strong>12 meter</strong> dan memantul kembali setinggi <strong>3/4</strong> dari ketinggian sebelumnya hingga berhenti.<br><br>
-              <em>Catatan Error:</em> Peneliti menghitung 12 / (1 - 3/4) = 48 m, padahal ia lupa bahwa setelah pantulan pertama bola bergerak <strong>naik dan turun</strong>!<br><br>
+              <em>Catatan Error:</em> Peneliti menghitung 12 / (1 &minus; 3/4) = 48 m, padahal ia lupa bahwa setelah pantulan pertama bola bergerak <strong>naik dan turun</strong>!<br><br>
               <strong>Kode Pintu 3:</strong> Hitung <strong>panjang lintasan total yang sebenarnya (dalam meter)</strong>!
             </div>
             <div class="code-row">
@@ -1039,8 +1151,8 @@
             <div class="quest-box">
               Diketahui tiga persamaan timbangan digital:<br>
               1) x + y + z = 15<br>
-              2) 2x + y - z = 7<br>
-              3) x - y + 2z = 11<br><br>
+              2) 2x + y &minus; z = 7<br>
+              3) x &minus; y + 2z = 11<br><br>
               <strong>Kode Pintu 4:</strong> Masukkan tiga digit kode berurutan untuk nilai <strong>xyz</strong> (contoh: jika x=1, y=2, z=3, ketik <code>123</code>)!
             </div>
             <div class="code-row">
@@ -1054,7 +1166,7 @@
             <h3 style="font-size:1.25rem; color:#831843; margin-bottom:10px;">🏝️ Ruang 5: Menara Pantau Pulau Pamantauang (Trigonometri)</h3>
             <div class="story-banner">Radar navigasi kapal membutuhkan kalibrasi ketinggian menara suar di tepi pantai.</div>
             <div class="quest-box">
-              Dari titik pengamatan sejauh <strong>40 meter</strong> di atas permukaan tanah mendatar dari kaki menara suar, sudut elevasi ke puncak menara adalah <strong>45°</strong>. Jika tinggi alat ukur teodolit adalah <strong>2 meter</strong>,<br><br>
+              Dari titik pengamatan sejauh <strong>40 meter</strong> di atas permukaan tanah mendatar dari kaki menara suar, sudut elevasi ke puncak menara adalah <strong>45&deg;</strong>. Jika tinggi alat ukur teodolit adalah <strong>2 meter</strong>,<br><br>
               <strong>Kode Pintu 5:</strong> Berapa <strong>tinggi total menara suar (dalam meter)</strong>?
             </div>
             <div class="code-row">
@@ -1069,7 +1181,7 @@
             <div class="story-banner">Satu langkah terakhir! Tentukan titik puncak lintasan sinyal parabola untuk membuka gerbang keluar!</div>
             <div class="quest-box">
               Ketinggian gelombang sinyal uji (dalam meter) terhadap waktu t detik mengikuti fungsi kuadrat:<br>
-              <strong>h(t) = -4t² + 24t + 10</strong><br><br>
+              <strong>h(t) = &minus;4t<sup>2</sup> + 24t + 10</strong><br><br>
               <strong>Kode Gerbang Utama:</strong> Berapa <strong>ketinggian maksimum (dalam meter)</strong> yang dicapai gelombang sinyal tersebut?
             </div>
             <div class="code-row">
@@ -1081,12 +1193,12 @@
 
           <div id="room-7" class="hidden">
             <h3 style="font-size:1.45rem; color:#15803d; margin-bottom:8px;">🎉 SELAMAT! Kamu Berhasil Menaklukkan Semua Ruangan!</h3>
-            <p style="font-size:0.92rem; color:#475569; margin-bottom:14px;">Tuliskan refleksi singkatmu di bawah ini untuk menerbitkan <strong>Sertifikat Kelulusan Digital</strong>.</p>
+            <p style="font-size:0.92rem; color:#475569; margin-bottom:14px;">Tuliskan refleksi singkatmu di bawah ini untuk menerbitkan dan menyimpan <strong>Sertifikat Kelulusan Digital (PDF)</strong>.</p>
 
             <textarea id="ref-input" rows="3" style="width:100%; padding:12px; border-radius:14px; border:2px solid #cbd5e1; margin-bottom:12px;" placeholder="Apa konsep matematika paling menarik yang kamu pelajari hari ini?"></textarea>
             <div style="display:flex; gap:10px; flex-wrap:wrap;">
               <button class="btn-primary" onclick="generateCert()">🏅 Terbitkan Sertifikat Digital</button>
-              <button class="btn-outline" onclick="location.reload()">🔄 Mainkan Ulang</button>
+              <button class="btn-outline" onclick="resetMission()">🔄 Mainkan Ulang</button>
             </div>
 
             <div id="cert-area" class="cert-box hidden">
@@ -1097,9 +1209,10 @@
               <p id="cert-stats" style="font-size:0.88rem; color:#334155; margin-bottom:12px;"></p>
               <div id="cert-ref" style="font-style:italic; font-size:0.84rem; color:#475569; background:#fff; padding:10px; border-radius:10px; border:1px dashed #f9a8d4; margin-bottom:14px;"></div>
               <div style="font-size:0.82rem; color:#1e293b; font-weight:700;">
-                Guru Mata Pelajaran: Rahmatul Ula, S.MAT<br>
+                Guru Mata Pelajaran: Rahmatul Ula, S.Mat.<br>
                 SMAN 14 PANGKEP • Pulau Pamantauang
               </div>
+              <button class="btn-print-cert no-print" onclick="window.print()">🖨️ Cetak / Simpan Sertifikat (PDF)</button>
             </div>
           </div>
         </div>
@@ -1132,11 +1245,11 @@
       </div>
     </section>
 
-    <!-- TAB 5: PROFIL GURU -->
+    <!-- TAB 5: PROFIL GURU & LISENSI ASET -->
     <section id="view-profil" class="section-view">
       <div class="hero-card" style="grid-template-columns: 220px 1fr;">
         <div class="avatar-frame">
-          <svg width="170" height="185" viewBox="0 0 220 240" xmlns="http://www.w3.org/2000/svg">
+          <svg width="170" height="185" viewBox="0 0 220 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Profil Rahmatul Ula, S.Mat.">
             <ellipse cx="110" cy="102" rx="60" ry="64" fill="#ec4899"/>
             <ellipse cx="110" cy="104" rx="48" ry="52" fill="#fce7f3"/>
             <path d="M58 175 C58 158, 162 158, 162 175 L172 225 L48 225 Z" fill="#8b5cf6"/>
@@ -1153,15 +1266,22 @@
             <path d="M103 127 Q110 133 117 127" stroke="#be185d" stroke-width="2.5" fill="none" stroke-linecap="round"/>
             <path d="M56 122 C74 156, 146 156, 164 122 C164 152, 138 172, 110 172 C82 172, 56 152, 56 122 Z" fill="#ec4899"/>
           </svg>
-          <span class="teacher-badge">Pendidik Inovatif</span>
+          <span class="teacher-badge">Pendidik Inovatif 2026</span>
         </div>
         <div>
-          <h2 style="font-size:1.75rem; color:#1e1b4b; margin-bottom:8px;">Rahmatul Ula, S.MAT</h2>
+          <h2 style="font-size:1.75rem; color:#1e1b4b; margin-bottom:8px;">Rahmatul Ula, S.Mat.</h2>
           <p style="font-weight:700; color:var(--primary-dark); margin-bottom:12px;">Guru Matematika • SMAN 14 PANGKEP</p>
           <div class="formula-box" style="background:#fdf2f8; border-color:#f9a8d4;">
             <strong>📍 Unit Kerja:</strong> SMAN 14 PANGKEP<br>
             <strong>🏝️ Alamat Sekolah:</strong> Pulau Pamantauang, Kabupaten Pangkajene dan Kepulauan, Sulawesi Selatan<br>
+            <strong>💻 Jenis Karya Digital:</strong> Koding dan Kecerdasan Artifisial (Program 10.000 Karya Digital Guru Dinas Pendidikan Provinsi Sulawesi Selatan Tahun 2026)<br>
             <strong>🎯 Visi Pembelajaran:</strong> Menghadirkan pembelajaran matematika yang bermakna, menyenangkan, dan membangun pemahaman mendalam (<em>deep learning</em>) berbasis teknologi digital, koding, dan kecerdasan artifisial untuk seluruh siswa kepulauan.
+          </div>
+          <div class="deep-note" style="background:#f5f3ff; border-left-color:#8b5cf6; color:#3b0764;">
+            <strong>📜 Atribusi &amp; Lisensi Aset Digital:</strong><br>
+            • Konten Materi, Bank Soal, Simulator, Logika Tutor AI &amp; Ilustrasi Vektor SVG: Karya Orisinal <strong>Rahmatul Ula, S.Mat.</strong> — Lisensi Terbuka <strong>Creative Commons CC BY-NC-SA 4.0</strong>.<br>
+            • Tipografi: <em>Fredoka</em> &amp; <em>Plus Jakarta Sans</em> oleh Google Fonts (<strong>SIL Open Font License</strong>).<br>
+            • Audio Interaktif: Sintesis prosedural standar terbuka <strong>W3C Web Audio API</strong> (Bebas Royalti).
           </div>
         </div>
       </div>
@@ -1169,8 +1289,8 @@
   </main>
 
   <footer>
-    <strong>mathEscape: Aplikasi Pembelajaran Mendalam Matematika Kelas X</strong><br>
-    Dikembangkan oleh <strong>Rahmatul Ula, S.MAT</strong> • SMAN 14 PANGKEP, Pulau Pamantauang
+    <strong>mathEscape v2.0: Aplikasi Pembelajaran Mendalam Matematika Kelas X (Koding &amp; Kecerdasan Artifisial)</strong><br>
+    Dikembangkan oleh <strong>Rahmatul Ula, S.Mat.</strong> • SMAN 14 PANGKEP, Pulau Pamantauang • Lisensi Terbuka <strong>CC BY-NC-SA 4.0</strong>
   </footer>
 
   <script>
@@ -1208,11 +1328,104 @@
       6: "46"
     };
 
+    const STORAGE_KEY = "mathEscape_SMAN14Pangkep_v2";
     let activeRoom = 0;
     let points = 100;
     let elapsedSec = 0;
     let clockTimer = null;
     let agentName = "Siswa SMAN 14 Pangkep";
+
+    function saveProgress() {
+      try {
+        const data = {
+          activeRoom,
+          points,
+          elapsedSec,
+          agentName,
+          reflection: document.getElementById('ref-input') ? document.getElementById('ref-input').value : ''
+        };
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+      } catch (e) {}
+    }
+
+    function loadProgress() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (!raw) return;
+        const data = JSON.parse(raw);
+        if (data && data.activeRoom && data.activeRoom >= 1) {
+          activeRoom = data.activeRoom;
+          points = typeof data.points === 'number' ? data.points : 100;
+          elapsedSec = typeof data.elapsedSec === 'number' ? data.elapsedSec : 0;
+          agentName = data.agentName || "Siswa SMAN 14 Pangkep";
+
+          document.getElementById('hud-agent').textContent = agentName;
+          document.getElementById('hud-points').textContent = points;
+          updateClockDisplay();
+          showRoom(activeRoom);
+
+          if (data.reflection && document.getElementById('ref-input')) {
+            document.getElementById('ref-input').value = data.reflection;
+          }
+          if (activeRoom < 7) {
+            startClock();
+          }
+          botReply(`Selamat datang kembali, <strong>${agentName}</strong>! Progres misimu dipulihkan otomatis di <strong>Ruang ${activeRoom === 7 ? 'Selesai' : activeRoom}</strong>.`);
+        }
+      } catch (e) {}
+    }
+
+    function resetMission() {
+      if (!confirm("Apakah kamu yakin ingin mengulang misi dari awal? Progres dan skor saat ini akan diatur ulang.")) return;
+      try { localStorage.removeItem(STORAGE_KEY); } catch (e) {}
+      clearInterval(clockTimer);
+      clockTimer = null;
+      activeRoom = 0;
+      points = 100;
+      elapsedSec = 0;
+      agentName = "Siswa SMAN 14 Pangkep";
+
+      document.getElementById('hud-agent').textContent = "Tamu";
+      document.getElementById('hud-room').textContent = "Intro";
+      document.getElementById('hud-time').textContent = "00:00";
+      document.getElementById('hud-points').textContent = "100";
+      document.getElementById('agent-input').value = "";
+      document.getElementById('ref-input').value = "";
+      document.getElementById('cert-area').classList.add('hidden');
+
+      for (let i = 1; i <= 6; i++) {
+        document.getElementById('in-' + i).value = "";
+        const msg = document.getElementById('msg-' + i);
+        msg.className = 'alert-msg';
+        msg.textContent = '';
+      }
+
+      for (let i = 0; i <= 7; i++) {
+        document.getElementById('room-' + i).classList.add('hidden');
+      }
+      document.getElementById('room-0').classList.remove('hidden');
+
+      for (let d = 1; d <= 6; d++) {
+        const dot = document.getElementById('dot-' + d);
+        dot.className = d === 1 ? 'r-dot current' : 'r-dot';
+      }
+      botReply("🔄 Progres misi telah diatur ulang. Masukkan nama agen/kelompokmu untuk memulai petualangan baru!");
+    }
+
+    function updateClockDisplay() {
+      const mm = String(Math.floor(elapsedSec / 60)).padStart(2, '0');
+      const ss = String(elapsedSec % 60).padStart(2, '0');
+      document.getElementById('hud-time').textContent = `${mm}:${ss}`;
+    }
+
+    function startClock() {
+      if (clockTimer) clearInterval(clockTimer);
+      clockTimer = setInterval(() => {
+        elapsedSec++;
+        updateClockDisplay();
+        if (elapsedSec % 5 === 0) saveProgress();
+      }, 1000);
+    }
 
     function playTone(type) {
       try {
@@ -1235,12 +1448,8 @@
       if (val) agentName = val;
       document.getElementById('hud-agent').textContent = agentName;
       showRoom(1);
-      clockTimer = setInterval(() => {
-        elapsedSec++;
-        const mm = String(Math.floor(elapsedSec / 60)).padStart(2, '0');
-        const ss = String(elapsedSec % 60).padStart(2, '0');
-        document.getElementById('hud-time').textContent = `${mm}:${ss}`;
-      }, 1000);
+      startClock();
+      saveProgress();
       botReply(`Semangat bertugas, <strong>${agentName}</strong>! Kamu sekarang berada di <strong>Ruang 1</strong>. Gunakan simulator jika ingin mengamati pola awal.`);
     }
 
@@ -1269,11 +1478,12 @@
       const a = 10 + (n - 1) * 15;
       const b = 5 * Math.pow(2, n - 1);
       document.getElementById('sim-res').innerHTML =
-        `Jam ke-${n} ➔ Tabung A = <strong>${a}</strong> koloni | Tabung B = <strong>${b}</strong> koloni.`;
+        `Jam ke-${n} &rArr; Tabung A = <strong>${a}</strong> koloni | Tabung B = <strong>${b}</strong> koloni.`;
     }
 
     function verifyRoom(num) {
-      const ans = document.getElementById('in-' + num).value.trim();
+      const inputEl = document.getElementById('in-' + num);
+      const ans = inputEl.value.trim();
       const msg = document.getElementById('msg-' + num);
 
       if (ans === ROOM_CODES[num]) {
@@ -1283,19 +1493,26 @@
         setTimeout(() => {
           if (num < 6) {
             showRoom(num + 1);
+            saveProgress();
             botReply(`Hebat! Kamu berhasil masuk ke <strong>Ruang ${num + 1}</strong>. Baca informasi soal dengan teliti!`);
           } else {
             clearInterval(clockTimer);
             showRoom(7);
-            botReply('Luar biasa! Semua 6 ruangan berhasil kamu taklukkan. Sekarang isi refleksimu untuk mencetak sertifikat!');
+            saveProgress();
+            botReply('Luar biasa! Semua 6 ruangan berhasil kamu taklukkan. Sekarang isi refleksimu untuk mencetak/menyimpan sertifikat PDF!');
           }
-        }, 1000);
+        }, 900);
       } else {
         playTone('err');
+        inputEl.classList.remove('shake-error');
+        void inputEl.offsetWidth;
+        inputEl.classList.add('shake-error');
+
         points = Math.max(50, points - 5);
         document.getElementById('hud-points').textContent = points;
+        saveProgress();
         msg.className = 'alert-msg err';
-        msg.innerHTML = '❌ <strong>Kode Belum Tepat!</strong> (-5 poin). Coba cek kembali langkah perhitunganmu atau minta petunjuk Tutor AI.';
+        msg.innerHTML = '❌ <strong>Kode Belum Tepat!</strong> (&minus;5 poin). Coba cek kembali langkah perhitunganmu atau minta petunjuk Tutor AI.';
       }
     }
 
@@ -1305,6 +1522,7 @@
         alert("Tuliskan refleksi singkat minimal 1 kalimat terlebih dahulu ya!");
         return;
       }
+      saveProgress();
       document.getElementById('cert-name').textContent = agentName;
       document.getElementById('cert-stats').innerHTML =
         `Waktu Penyelesaian: <strong>${document.getElementById('hud-time').textContent}</strong> • Skor Penalaran: <strong>${points} / 100</strong>`;
@@ -1334,12 +1552,12 @@
       userReply("Beri petunjuk untuk ruangan ini dong!");
       const hints = {
         0: "Klik tombol <strong>Mulai Misi Sekarang</strong> untuk masuk ke Ruang 1 ya!",
-        1: "🔍 <strong>Petunjuk Ruang 1:</strong> Tabung A memakai U₁₀ = 10 + 9(15). Tabung B memakai U₆ = 5 × 2⁵. Lalu jumlahkan hasilnya!",
-        2: "☀️ <strong>Petunjuk Ruang 2:</strong> Dari U₃=24 ke U₇=44 selisihnya 4 hari dan naik 20 kWh, jadi b = 5. Cari a (hari ke-1), lalu hitung S₁₀!",
-        3: "🌀 <strong>Petunjuk Ruang 3:</strong> Pisahkan <strong>12 m</strong> (jatuh pertama), lalu tambah <strong>2 kali</strong> deret tak hingga pantulan dengan a = 12 × (3/4) = 9 dan r = 3/4.",
-        4: "🧪 <strong>Petunjuk Ruang 4:</strong> Jumlahkan persamaan (1) dan (2) untuk menghilangkan variabel z: (x+y+z) + (2x+y-z) = 15 + 7 ⇒ 3x + 2y = 22.",
-        5: "🏝️ <strong>Petunjuk Ruang 5:</strong> Karena sudut elevasi 45°, tinggi menara di atas alat ukur sama dengan jarak mendatar (40 m). Jangan lupa tambahkan tinggi alat ukur!",
-        6: "🚀 <strong>Petunjuk Ruang 6:</strong> Cari waktu puncak dulu dengan t = -b / (2a) = -24 / (2(-4)), lalu masukkan nilai t tersebut ke h(t)!"
+        1: "🔍 <strong>Petunjuk Ruang 1:</strong> Tabung A memakai U<sub>10</sub> = 10 + 9(15). Tabung B memakai U<sub>6</sub> = 5 &times; 2<sup>5</sup>. Lalu jumlahkan hasilnya!",
+        2: "☀️ <strong>Petunjuk Ruang 2:</strong> Dari U<sub>3</sub> = 24 ke U<sub>7</sub> = 44 selisihnya 4 hari dan naik 20 kWh, jadi b = 5. Cari a (hari ke-1), lalu hitung S<sub>10</sub>!",
+        3: "🌀 <strong>Petunjuk Ruang 3:</strong> Pisahkan <strong>12 m</strong> (jatuh pertama), lalu tambah <strong>2 kali</strong> deret tak hingga pantulan dengan a = 12 &times; (3/4) = 9 dan r = 3/4.",
+        4: "🧪 <strong>Petunjuk Ruang 4:</strong> Jumlahkan persamaan (1) dan (2) untuk menghilangkan variabel z: (x + y + z) + (2x + y &minus; z) = 15 + 7 &rArr; 3x + 2y = 22.",
+        5: "🏝️ <strong>Petunjuk Ruang 5:</strong> Karena sudut elevasi 45&deg;, tinggi menara di atas alat ukur sama dengan jarak mendatar (40 m). Jangan lupa tambahkan tinggi alat ukur!",
+        6: "🚀 <strong>Petunjuk Ruang 6:</strong> Cari waktu puncak dulu dengan t = &minus;b / (2a) = &minus;24 / (2(&minus;4)), lalu masukkan nilai t tersebut ke h(t)!"
       };
       setTimeout(() => botReply(hints[activeRoom] || hints[0]), 350);
     }
@@ -1349,10 +1567,10 @@
       const concepts = {
         0: "Misi ini menguji pemahaman konseptual Matematika Kelas X Fase E.",
         1: "Membedakan <strong>Barisan Aritmetika</strong> (penambahan tetap) dengan <strong>Barisan Geometri</strong> (pengali tetap).",
-        2: "Membedakan <strong>Suku ke-n (Un)</strong> dengan <strong>Jumlah n suku pertama (Sn)</strong>.",
-        3: "Memahami lintasan pantulan bola sebagai <strong>Deret Geometri Tak Hingga</strong> dua arah (naik & turun).",
+        2: "Membedakan <strong>Suku ke-n (U<sub>n</sub>)</strong> dengan <strong>Jumlah n suku pertama (S<sub>n</sub>)</strong>.",
+        3: "Memahami lintasan pantulan bola sebagai <strong>Deret Geometri Tak Hingga</strong> dua arah (naik &amp; turun).",
         4: "Menyelesaikan <strong>SPLTV</strong> dengan metode eliminasi bertahap menjadi dua variabel.",
-        5: "Penerapan <strong>Perbandingan Trigonometri (tan θ)</strong> pada pengukuran tinggi.",
+        5: "Penerapan <strong>Perbandingan Trigonometri (tan &theta;)</strong> pada pengukuran tinggi.",
         6: "Menentukan <strong>Nilai Optimum (Titik Puncak)</strong> pada Fungsi Kuadrat."
       };
       setTimeout(() => botReply("📘 <strong>Konsep Kunci:</strong> " + (concepts[activeRoom] || concepts[0])), 350);
@@ -1374,6 +1592,8 @@
         }
       }, 400);
     }
+
+    window.addEventListener('DOMContentLoaded', loadProgress);
   </script>
 </body>
 </html>
